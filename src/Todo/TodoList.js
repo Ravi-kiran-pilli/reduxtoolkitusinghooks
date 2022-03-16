@@ -10,12 +10,13 @@ const TodoList = () => {
 
     useEffect(() => {
         dispatch(getTodoAsync());
-    }, [dispatch]);
+    }, [dispatch, todos]);
 
     return (
         <ul className='list-group'>
             {todos && todos.map((todo) => (
-                <TodoItem id={todo.id} title={todo.fullName} completed={todo.completed} />
+                // console.log(todo)
+                <TodoItem key={todo.fullName} id={todo.id} title={todo.fullName} completed={todo.completed} />
             ))}
         </ul>
     );

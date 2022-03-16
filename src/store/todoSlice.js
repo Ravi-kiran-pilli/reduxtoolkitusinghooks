@@ -104,7 +104,8 @@ const todoSlice = createSlice({
         },
         [addTodoAsync.fulfilled]: (state, action) => {
             console.log("added data successful...!")
-            state.push(action.payload.todo);
+            // console.log(action.payload.todo)
+            state.todos.push(action.payload.todo);
         },
         [toggleCompleteAsync.pending]: (state, action) => {
             console.log("updating data...!")
@@ -122,11 +123,18 @@ const todoSlice = createSlice({
         },
         [deleteTodoAsync.fulfilled]: (state, action) => {
             console.log("Deelte data successful...!")
-            console.log(state.todos, action.payload)
-            // const index = state.todos.todos.findIndex(
+            // const index = state.todos.findIndex(
             //     (todo) => todo.id === action.payload.id
             // );
-            // state.splice(index, 1)
+
+            state.todos = [...state.todos.filter(arrayItem => arrayItem.id !== action.payload.id)];
+            console.log(state.todos)
+            // state.todos.remove(action.payload.id)
+
+            // state.todos.splice(index, 1)
+
+            // state.todos = state.todos.filter((todo) => { return todo.id !== action.payload.id })
+            // state.todos.shift(action.payload.id)
         }
     }
 });

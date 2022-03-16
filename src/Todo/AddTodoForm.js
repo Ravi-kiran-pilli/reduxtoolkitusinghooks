@@ -18,7 +18,7 @@ const AddTodoForm = () => {
             dispatch(
                 getTodoAsync()
             );
-        }
+        } setValue('')
     };
 
     return (

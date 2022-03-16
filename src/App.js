@@ -11,10 +11,7 @@ import { CounterItem } from './Todo/CounterItem';
 // import Counter from './components/Counter';
 
 function App() {
-  // const counter = useSelector(state => state.number)
-  // const details = useSelector(state => state.details)
-  // console.log(counter);
-  // console.log(details)
+
   return (
     <div className="App">
       {/* <Counter />
@@ -27,10 +24,6 @@ function App() {
         <TotalCompleteItems />
 
       </div>
-      {/* <div>
-        <CounterItem />
-
-      </div> */}
 
     </div>
   );
