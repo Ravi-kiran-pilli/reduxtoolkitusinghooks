@@ -123,22 +123,15 @@ const todoSlice = createSlice({
         },
         [deleteTodoAsync.fulfilled]: (state, action) => {
             console.log("Deelte data successful...!")
-            // const index = state.todos.findIndex(
-            //     (todo) => todo.id === action.payload.id
-            // );
+            const { id } = action.payload;
+            // console.log(id);
 
-            state.todos = [...state.todos.filter(arrayItem => arrayItem.id !== action.payload.id)];
-            console.log(state.todos)
-            // state.todos.remove(action.payload.id)
-
-            // state.todos.splice(index, 1)
-
-            // state.todos = state.todos.filter((todo) => { return todo.id !== action.payload.id })
-            // state.todos.shift(action.payload.id)
+            state.todos = state.todos.filter(item => item.id !== id)
         }
     }
 });
 // export const { addTodo, toggleComplete, deleteTodo } = todoSlice.actions;
+export const selectTodos = state => state.todos.todos;
 export const { incrementCount, decrementCount } = todoSlice.actions;
 
 export default todoSlice.reducer;

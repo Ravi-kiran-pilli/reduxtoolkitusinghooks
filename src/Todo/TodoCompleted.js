@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const TotalCompleteItems = () => {
     const todos = useSelector((state) =>
-        // console.log(state)
+        // console.log(state.todos)
         state.todos.todos.filter((todo) => todo.completed === true)
     );
 
