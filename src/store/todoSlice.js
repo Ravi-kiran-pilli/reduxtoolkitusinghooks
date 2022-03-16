@@ -67,7 +67,7 @@ const todoSlice = createSlice({
         },
         decrementCount: (state, action) => {
             state.count -= 1
-        }
+        },
         // addTodo: (state, action) => {
         //     const newToDo = {
         //         id: Date.now(),
@@ -82,12 +82,12 @@ const todoSlice = createSlice({
         //     );
         //     state[index].completed = action.payload.completed;
         // },
-        // deleteTodo: (state, action) => {
-        //     const index = state.findIndex(
-        //         (todo) => todo.id === action.payload.id
-        //     );
-        //     state.splice(index, 1)
-        // },
+        deleteTodo: (state, action) => {
+            const { id } = action.payload;
+            // console.log(id);
+
+            state.todos = state.todos.filter(item => item.id !== id)
+        },
 
     }, extraReducers: {
         [getTodoAsync.pending]: (state, action) => {

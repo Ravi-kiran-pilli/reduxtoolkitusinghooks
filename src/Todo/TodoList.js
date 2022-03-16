@@ -15,7 +15,7 @@ const TodoList = () => {
 
     return (
         <ul className='list-group'>
-            {todos && todos.map((todo) => (
+            {todos.length > 0 && todos.map((todo) => (
                 // console.log(todo)
                 <TodoItem id={todo.id} title={todo.fullName} completed={todo.completed} />
             ))}
